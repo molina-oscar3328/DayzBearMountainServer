@@ -183,5 +183,34 @@ function calculateAlienPurchasePrice() {
 
 
 
+function calculateTotalPurchasePrice() {
+    var nuggetQuantityAlien = document.getElementById("nuggetQuantity9").value;
+    var nuggetQuantityGold = document.getElementById("nuggetQuantity8").value;
+    var nuggetQuantitySilver = document.getElementById("nuggetQuantity7").value;
+    var nuggetQuantitySulfur = document.getElementById("nuggetQuantity6").value;
+    var nuggetQuantityIron = document.getElementById("nuggetQuantity5").value;
+    var nuggetQuantityCoal = document.getElementById("nuggetQuantity4").value;
+    var nuggetQuantityTin = document.getElementById("nuggetQuantity3").value;
+    var nuggetQuantityCopper = document.getElementById("nuggetQuantity2").value;
+    var nuggetQuantityDiamond = document.getElementById("nuggetQuantity8").value;
+
+    var alienOriginalPrice = 187000; // Original price of each alien diamond nugget
+    var goldOriginalPrice = 125000; // Original price of each gold diamond nugget
+
+    var alienSetQuantity = Math.floor(nuggetQuantityAlien / 10); // Calculate the number of alien sets
+    var alienRemainingNuggets = nuggetQuantityAlien % 10; // Calculate the remaining individual alien nuggets
+    var alienPurchasePrice = (alienSetQuantity * alienOriginalPrice) + (alienRemainingNuggets * (alienOriginalPrice / 10)); // Calculate the total alien purchase price
+
+    var goldSetQuantity = Math.floor(nuggetQuantityGold / 10); // Calculate the number of gold sets
+    var goldRemainingNuggets = nuggetQuantityGold % 10; // Calculate the remaining individual gold nuggets
+    var goldPurchasePrice = (goldSetQuantity * goldOriginalPrice) + (goldRemainingNuggets * (goldOriginalPrice / 10)); // Calculate the total gold purchase price
+
+    var totalAmount = alienPurchasePrice + goldPurchasePrice; // Combine the total purchase prices for both types
+
+    document.getElementById("totalAmount9").textContent = "$" + totalAmount.toLocaleString('en-US');
+}
+
+
+
 
 
